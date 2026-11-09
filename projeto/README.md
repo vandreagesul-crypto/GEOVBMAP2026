@@ -25,6 +25,13 @@ Se o download estiver bloqueado, aponte outro executável:
 export REMOTION_BROWSER=/caminho/para/chrome-headless-shell
 ```
 
+No ambiente de nuvem (Claude Code), o Node precisa usar o proxy para baixar o navegador
+(fica em `node_modules/.remotion/`, refazer após `npm install` em sessão nova):
+
+```bash
+NODE_USE_ENV_PROXY=1 npx remotion browser ensure
+```
+
 ## Regras de pastas
 - Nunca gravar em `../originais/` — apenas leitura.
 - Renderizações finais vão para `../entregas/`.
