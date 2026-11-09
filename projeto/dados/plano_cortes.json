@@ -1,0 +1,192 @@
+{
+ "cortes": [
+  [
+   0.0,
+   1.65,
+   "Silêncio antes da primeira fala",
+   "pausa"
+  ],
+  [
+   23.19,
+   23.69,
+   "Pausa de 0.9 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   25.12,
+   25.6,
+   "Pausa de 0.9 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   27.04,
+   27.62,
+   "Pausa de 1.0 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   31.38,
+   33.51,
+   "Pausa de 2.5 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   35.11,
+   35.61,
+   "Pausa de 0.9 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   37.0,
+   37.85,
+   "Pausa de 1.2 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   43.35,
+   46.14,
+   "Pausa de 3.2 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   47.15,
+   47.7,
+   "Pausa de 1.0 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   60.21,
+   61.67,
+   "Pausa de 1.9 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   69.56,
+   70.2,
+   "Pausa de 1.0 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   76.81,
+   77.24,
+   "Pausa de 0.8 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   93.59,
+   95.63,
+   "Pausa de 2.4 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   97.9,
+   99.66,
+   "Erro de gravação: 'algumas… algumas' — sai o 1º 'algumas' e a hesitação de 1,3 s",
+   "erro"
+  ],
+  [
+   105.17,
+   105.89,
+   "Pausa de 1.1 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   114.46,
+   115.11,
+   "Pausa de 1.0 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   118.72,
+   119.52,
+   "Pausa de 1.2 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   130.16,
+   130.61,
+   "Pausa de 0.9 s reduzida para 0,4 s",
+   "pausa"
+  ],
+  [
+   141.45,
+   142.1,
+   "Silêncio após 'Valeu, obrigado!'",
+   "pausa"
+  ]
+ ],
+ "trechos": [
+  [
+   1.65,
+   23.19
+  ],
+  [
+   23.69,
+   25.12
+  ],
+  [
+   25.6,
+   27.04
+  ],
+  [
+   27.62,
+   31.38
+  ],
+  [
+   33.51,
+   35.11
+  ],
+  [
+   35.61,
+   37.0
+  ],
+  [
+   37.85,
+   43.35
+  ],
+  [
+   46.14,
+   47.15
+  ],
+  [
+   47.7,
+   60.21
+  ],
+  [
+   61.67,
+   69.56
+  ],
+  [
+   70.2,
+   76.81
+  ],
+  [
+   77.24,
+   93.59
+  ],
+  [
+   95.63,
+   97.9
+  ],
+  [
+   99.66,
+   105.17
+  ],
+  [
+   105.89,
+   114.46
+  ],
+  [
+   115.11,
+   118.72
+  ],
+  [
+   119.52,
+   130.16
+  ],
+  [
+   130.61,
+   141.45
+  ]
+ ]
+}
