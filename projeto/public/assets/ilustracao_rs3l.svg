@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" font-family="Inter, 'DejaVu Sans', sans-serif">
+  <defs>
+    <linearGradient id="ceu" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5fb4ea"/>
+      <stop offset="1" stop-color="#d8eefa"/>
+    </linearGradient>
+    <linearGradient id="solo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9cbf62"/>
+      <stop offset="1" stop-color="#6f9440"/>
+    </linearGradient>
+    <g id="satelite">
+      <rect x="-60" y="-14" width="42" height="28" rx="3" fill="#1e3a8a" stroke="#0f172a" stroke-width="3"/>
+      <line x1="-60" y1="0" x2="-18" y2="0" stroke="#60a5fa" stroke-width="2"/>
+      <line x1="-39" y1="-14" x2="-39" y2="14" stroke="#60a5fa" stroke-width="2"/>
+      <rect x="18" y="-14" width="42" height="28" rx="3" fill="#1e3a8a" stroke="#0f172a" stroke-width="3"/>
+      <line x1="18" y1="0" x2="60" y2="0" stroke="#60a5fa" stroke-width="2"/>
+      <line x1="39" y1="-14" x2="39" y2="14" stroke="#60a5fa" stroke-width="2"/>
+      <rect x="-18" y="-20" width="36" height="40" rx="6" fill="#e5e7eb" stroke="#0f172a" stroke-width="3"/>
+      <path d="M -8 20 L 0 32 L 8 20 Z" fill="#0f172a"/>
+    </g>
+    <g id="pino">
+      <path d="M 0 0 C -16 -22 -18 -30 -18 -38 A 18 18 0 1 1 18 -38 C 18 -30 16 -22 0 0 Z" fill="#dc2626" stroke="#7f1d1d" stroke-width="2"/>
+      <circle cx="0" cy="-38" r="7" fill="#fff"/>
+    </g>
+    <g id="arvore">
+      <rect x="-6" y="-10" width="12" height="40" fill="#6b4423"/>
+      <circle cx="0" cy="-30" r="34" fill="#2f6b2f"/>
+      <circle cx="-20" cy="-18" r="22" fill="#3a7d34"/>
+      <circle cx="22" cy="-20" r="22" fill="#3a7d34"/>
+    </g>
+    <filter id="sombra" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Fundo -->
+  <rect width="1080" height="1920" fill="#f1f5f9"/>
+
+  <!-- Título -->
+  <rect width="1080" height="270" fill="#0f2a4a"/>
+  <text x="60" y="110" font-size="64" font-weight="800" fill="#ffffff">Topografia sob a</text>
+  <text x="60" y="185" font-size="64" font-weight="800" fill="#fbbf24">copa das árvores</text>
+  <text x="60" y="238" font-size="30" fill="#cbd5e1">Levantamento com o RS3L (banda L) para supressão vegetal</text>
+
+  <!-- Cena -->
+  <rect x="0" y="270" width="1080" height="500" fill="url(#ceu)"/>
+  <rect x="0" y="770" width="1080" height="250" fill="url(#solo)"/>
+
+  <!-- Satélites -->
+  <use href="#satelite" transform="translate(160 360) rotate(-12)"/>
+  <use href="#satelite" transform="translate(470 320)"/>
+  <use href="#satelite" transform="translate(800 370) rotate(10)"/>
+
+  <!-- Sinais (banda L) passando pela copa -->
+  <g stroke="#f59e0b" stroke-width="5" stroke-dasharray="14 10" stroke-linecap="round" fill="none">
+    <line x1="170" y1="395" x2="530" y2="686"/>
+    <line x1="470" y1="356" x2="535" y2="684"/>
+    <line x1="790" y1="404" x2="540" y2="686"/>
+  </g>
+
+  <!-- Árvore grande (copa semitransparente sobre os sinais) -->
+  <rect x="368" y="700" width="34" height="130" fill="#6b4423"/>
+  <g fill="#2f6b2f" opacity="0.82">
+    <circle cx="385" cy="570" r="120"/>
+    <circle cx="275" cy="620" r="80"/>
+    <circle cx="500" cy="615" r="85"/>
+    <circle cx="330" cy="500" r="70"/>
+    <circle cx="450" cy="500" r="72"/>
+  </g>
+  <g fill="#4a9a40" opacity="0.7">
+    <circle cx="345" cy="560" r="45"/>
+    <circle cx="440" cy="580" r="40"/>
+  </g>
+  <rect x="120" y="500" width="185" height="48" rx="24" fill="#0f2a4a"/>
+  <text x="212" y="533" font-size="26" font-weight="700" fill="#fbbf24" text-anchor="middle">Banda L</text>
+
+  <!-- Bastão inclinado com receptor -->
+  <g transform="rotate(14 470 960)">
+    <line x1="470" y1="960" x2="470" y2="705" stroke="#111827" stroke-width="10" stroke-linecap="round"/>
+    <ellipse cx="470" cy="700" rx="40" ry="16" fill="#1f2937"/>
+    <ellipse cx="470" cy="692" rx="40" ry="14" fill="#374151"/>
+    <rect x="452" y="676" width="36" height="10" rx="4" fill="#fbbf24"/>
+  </g>
+  <!-- Vertical de referência e arco do ângulo -->
+  <line x1="470" y1="960" x2="470" y2="740" stroke="#ffffff" stroke-width="3" stroke-dasharray="8 8"/>
+  <path d="M 470 840 A 120 120 0 0 1 499 843" stroke="#ffffff" stroke-width="4" fill="none"/>
+  <rect x="510" y="790" width="190" height="72" rx="14" fill="#ffffff" filter="url(#sombra)"/>
+  <text x="605" y="820" font-size="24" font-weight="800" fill="#0f2a4a" text-anchor="middle">IMU</text>
+  <text x="605" y="849" font-size="21" fill="#334155" text-anchor="middle">inclinação até 60°</text>
+
+  <!-- Árvores locadas no terreno -->
+  <use href="#arvore" transform="translate(110 900) scale(0.8)"/>
+  <use href="#pino" transform="translate(110 860)"/>
+  <use href="#arvore" transform="translate(230 960) scale(0.7)"/>
+  <use href="#pino" transform="translate(230 925)"/>
+  <use href="#arvore" transform="translate(600 975) scale(0.7)"/>
+  <use href="#pino" transform="translate(600 940)"/>
+
+  <!-- Coletora -->
+  <g filter="url(#sombra)">
+    <rect x="760" y="560" width="250" height="420" rx="30" fill="#1f2937"/>
+    <rect x="780" y="590" width="210" height="300" rx="10" fill="#f8fafc"/>
+  </g>
+  <text x="885" y="622" font-size="20" font-weight="700" fill="#0f2a4a" text-anchor="middle">Pontos levantados</text>
+  <rect x="792" y="636" width="186" height="150" rx="6" fill="#dcfce7"/>
+  <g fill="#dc2626">
+    <circle cx="820" cy="670" r="7"/><circle cx="870" cy="700" r="7"/><circle cx="935" cy="660" r="7"/>
+    <circle cx="845" cy="750" r="7"/><circle cx="910" cy="735" r="7"/><circle cx="955" cy="765" r="7"/>
+  </g>
+  <polyline points="820,670 870,700 935,660 955,765 910,735 845,750 820,670" fill="none" stroke="#2563eb" stroke-width="3" stroke-dasharray="6 5"/>
+  <text x="800" y="818" font-size="18" font-weight="700" fill="#0f2a4a">Coordenadas UTM</text>
+  <line x1="800" y1="840" x2="970" y2="840" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="800" y1="864" x2="940" y2="864" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="885" cy="935" r="26" fill="#374151"/>
+  <circle cx="815" cy="935" r="14" fill="#374151"/>
+  <circle cx="955" cy="935" r="14" fill="#374151"/>
+
+  <!-- Cartões -->
+  <g font-size="27" fill="#334155">
+    <g transform="translate(40 1060)">
+      <rect width="480" height="300" rx="24" fill="#ffffff" filter="url(#sombra)"/>
+      <rect width="480" height="10" rx="5" fill="#f59e0b"/>
+      <circle cx="58" cy="72" r="32" fill="#fef3c7"/>
+      <text x="58" y="84" font-size="32" font-weight="800" fill="#b45309" text-anchor="middle">1</text>
+      <text x="108" y="66" font-size="30" font-weight="800" fill="#0f2a4a">Sinal sob a copa</text>
+      <text x="108" y="100" font-size="22" fill="#64748b">Banda L</text>
+      <text x="32" y="160">A recepção dos satélites</text>
+      <text x="32" y="196">continua mesmo sob as</text>
+      <text x="32" y="232">árvores, sem perder o</text>
+      <text x="32" y="268">ponto nem ter interferência.</text>
+    </g>
+    <g transform="translate(560 1060)">
+      <rect width="480" height="300" rx="24" fill="#ffffff" filter="url(#sombra)"/>
+      <rect width="480" height="10" rx="5" fill="#dc2626"/>
+      <circle cx="58" cy="72" r="32" fill="#fee2e2"/>
+      <text x="58" y="84" font-size="32" font-weight="800" fill="#b91c1c" text-anchor="middle">2</text>
+      <text x="108" y="66" font-size="30" font-weight="800" fill="#0f2a4a">Locação de</text>
+      <text x="108" y="100" font-size="30" font-weight="800" fill="#0f2a4a">cada árvore</text>
+      <text x="32" y="160">Pontos levantados para a</text>
+      <text x="32" y="196">supressão vegetal, com</text>
+      <text x="32" y="232">a quantidade conferida</text>
+      <text x="32" y="268">direto na coletora.</text>
+    </g>
+    <g transform="translate(40 1400)">
+      <rect width="480" height="300" rx="24" fill="#ffffff" filter="url(#sombra)"/>
+      <rect width="480" height="10" rx="5" fill="#2563eb"/>
+      <circle cx="58" cy="72" r="32" fill="#dbeafe"/>
+      <text x="58" y="84" font-size="32" font-weight="800" fill="#1d4ed8" text-anchor="middle">3</text>
+      <text x="108" y="66" font-size="30" font-weight="800" fill="#0f2a4a">Compensação</text>
+      <text x="108" y="100" font-size="30" font-weight="800" fill="#0f2a4a">de inclinação</text>
+      <text x="32" y="160">Sistema IMU: bastão</text>
+      <text x="32" y="196">inclinado até 60°,</text>
+      <text x="32" y="232">mantendo a precisão</text>
+      <text x="32" y="268">centimétrica.</text>
+    </g>
+    <g transform="translate(560 1400)">
+      <rect width="480" height="300" rx="24" fill="#ffffff" filter="url(#sombra)"/>
+      <rect width="480" height="10" rx="5" fill="#16a34a"/>
+      <circle cx="58" cy="72" r="32" fill="#dcfce7"/>
+      <text x="58" y="84" font-size="32" font-weight="800" fill="#15803d" text-anchor="middle">4</text>
+      <text x="108" y="66" font-size="30" font-weight="800" fill="#0f2a4a">Resolve em campo</text>
+      <text x="108" y="100" font-size="22" fill="#64748b">Sem voltar ao escritório</text>
+      <text x="32" y="160">Coordenadas UTM, erros</text>
+      <text x="32" y="196">de cada ponto e poligonal</text>
+      <text x="32" y="232">calculados na própria</text>
+      <text x="32" y="268">coletora.</text>
+    </g>
+  </g>
+
+  <!-- Rodapé -->
+  <rect x="0" y="1740" width="1080" height="180" fill="#0f2a4a"/>
+  <text x="60" y="1810" font-size="48" font-weight="800" fill="#ffffff">GeoVBMap</text>
+  <text x="60" y="1858" font-size="26" fill="#cbd5e1">Serviço, locação e venda do RS3L</text>
+  <text x="1020" y="1800" font-size="24" fill="#cbd5e1" text-anchor="end">Agende uma demonstração</text>
+  <text x="1020" y="1852" font-size="40" font-weight="800" fill="#fbbf24" text-anchor="end">(67) 99248-8884</text>
+</svg>
