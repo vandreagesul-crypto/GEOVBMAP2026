@@ -1,8 +1,11 @@
 import json, sys
 S, OUT = sys.argv[1], sys.argv[2]
+PLANO = sys.argv[3] if len(sys.argv) > 3 else "plano_cortes.json"
+NOME = sys.argv[4] if len(sys.argv) > 4 else "EdicaoVertical"
 FPS = 30
 d = json.load(open(S + "/transcricao.json"))
-plano = json.load(open(S + "/plano_cortes.json"))
+plano = json.load(open(S + "/" + PLANO))
+REMOVIDOS = [(r["de"], r["ate"]) for r in plano.get("remover", [])]
 W = [w for s in d for w in s["words"]]
 RAW = list(W)
 # Correções revisadas da transcrição (ver relatório)
@@ -38,7 +41,9 @@ for w in W:
     k = max(range(len(TR)), key=lambda k: (ov[k], -dist[k]))
     # Única palavra removida de propósito: o 1º "algumas" (erro de gravação, 97,8 s)
     cortada = w["w"] == " algumas" and 97.5 < w["s"] < 98.2
-    w["trecho"] = None if cortada else k
+    # Falas removidas de propósito no plano (ex.: versão de 90 s)
+    removida = any(a <= meio <= b for a, b in REMOVIDOS)
+    w["trecho"] = None if (cortada or removida) else k
 
 W = [w for w in W if w["trecho"] is not None]
 
@@ -130,7 +135,7 @@ import {{ Series, staticFile }} from "remotion";
 import {{ BasicCaptions }} from "../basic-captions.element";
 import {{ Enquadramento, type PontoEnquadramento }} from "./Enquadramento";
 
-// Gerado a partir do plano de cortes e da transcrição (tempos em relação ao original).
+// Gerado por scripts/gerar_composicao.py a partir de dados/{PLANO} e da transcrição (tempos em relação ao original).
 // Duração total: {total} quadros ({total / FPS:.1f} s a {FPS} fps).
 export const DURACAO_EDICAO = {total};
 
@@ -140,7 +145,7 @@ const PONTOS: ReadonlyArray<PontoEnquadramento> = {json.dumps(pontos)};
 // Área da legenda: longe da faixa inferior (~420 px) e dos botões à direita do Instagram.
 const LEGENDA = {{ largura: 840, esquerda: 80, baixo: 440 }};
 
-export const EdicaoVertical: React.FC = () => {{
+export const {NOME}: React.FC = () => {{
   return (
     <Series>
 {chr(10).join(blocos)}

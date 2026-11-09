@@ -1,5 +1,6 @@
 import transcricao from "../../dados/transcricao.json";
 import plano from "../../dados/plano_cortes.json";
+import plano90 from "../../dados/plano_cortes_90s.json";
 
 // Sincroniza inserções pela fala real: localiza palavras na transcrição
 // (tempos do original) e converte para o tempo da edição (após os cortes).
@@ -10,7 +11,9 @@ const PALAVRAS: ReadonlyArray<Palavra> = (
   transcricao as ReadonlyArray<{ words: ReadonlyArray<Palavra> }>
 ).flatMap((seg) => seg.words);
 
-const TRECHOS = plano.trechos as unknown as ReadonlyArray<readonly [number, number]>;
+export type Trechos = ReadonlyArray<readonly [number, number]>;
+export const TRECHOS_V01 = plano.trechos as unknown as Trechos;
+export const TRECHOS_90S = plano90.trechos as unknown as Trechos;
 
 const normalizar = (texto: string) =>
   texto
@@ -35,9 +38,9 @@ export const localizarFala = (frase: string, ocorrencia = 1) => {
 };
 
 // Converte um tempo do original (s) para o quadro correspondente na edição.
-export const quadroNaEdicao = (tOriginal: number, fps: number) => {
+export const quadroNaEdicao = (tOriginal: number, fps: number, trechos: Trechos) => {
   let acumulado = 0;
-  for (const [a, b] of TRECHOS) {
+  for (const [a, b] of trechos) {
     const fa = Math.round(a * fps);
     const fb = Math.round(b * fps);
     const f = Math.round(tOriginal * fps);

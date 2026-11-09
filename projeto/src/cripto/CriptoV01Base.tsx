@@ -8,8 +8,20 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import { EdicaoInstagram90 } from "../edicao/EdicaoInstagram90";
 import { EdicaoVertical } from "../edicao/EdicaoVertical";
-import { localizarFala, quadroNaEdicao } from "../edicao/sincronia";
+import {
+  TRECHOS_90S,
+  TRECHOS_V01,
+  localizarFala,
+  quadroNaEdicao,
+} from "../edicao/sincronia";
+
+// "base": edição V01 (122 s); "90s": versão para o Instagram (até 90 s).
+const VERSOES = {
+  base: { Edicao: EdicaoVertical, trechos: TRECHOS_V01 },
+  "90s": { Edicao: EdicaoInstagram90, trechos: TRECHOS_90S },
+} as const;
 
 const FPS = 30;
 
@@ -75,13 +87,16 @@ const Cartao: React.FC<{
   );
 };
 
-export const CriptoV01Base: React.FC = () => {
+export const CriptoV01Base: React.FC<{ readonly versao: keyof typeof VERSOES }> = ({
+  versao,
+}) => {
+  const { Edicao, trechos } = VERSOES[versao];
   return (
     <AbsoluteFill>
-      <EdicaoVertical />
+      <Edicao />
       {INSERCOES.map((ins) => {
-        const de = quadroNaEdicao(localizarFala(ins.entrada.frase).inicio, FPS);
-        const ate = quadroNaEdicao(localizarFala(ins.saida.frase).fim, FPS);
+        const de = quadroNaEdicao(localizarFala(ins.entrada.frase).inicio, FPS, trechos);
+        const ate = quadroNaEdicao(localizarFala(ins.saida.frase).fim, FPS, trechos);
         return (
           <Sequence key={ins.nome} name={ins.nome} from={de} durationInFrames={ate - de}>
             <Cartao imagem={ins.imagem} recorte={ins.recorte} />

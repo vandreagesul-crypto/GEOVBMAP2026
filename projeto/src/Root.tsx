@@ -2,6 +2,7 @@ import { Composition } from "remotion";
 import { MyComposition } from "./Composition";
 import { MeuPrimeiroProjeto } from "./MeuPrimeiroProjeto";
 import { DURACAO_EDICAO, EdicaoVertical } from "./edicao/EdicaoVertical";
+import { DURACAO_EDICAO as DURACAO_90S } from "./edicao/EdicaoInstagram90";
 import { CriptoV01Base } from "./cripto/CriptoV01Base";
 
 export const RemotionRoot: React.FC = () => {
@@ -32,6 +33,16 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1080}
         height={1920}
+        defaultProps={{ versao: "base" as const }}
+      />
+      <Composition
+        id="cripto-V01-instagram-90s"
+        component={CriptoV01Base}
+        durationInFrames={DURACAO_90S}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ versao: "90s" as const }}
       />
     </>
   );

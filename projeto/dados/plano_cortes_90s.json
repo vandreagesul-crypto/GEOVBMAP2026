@@ -1,0 +1,204 @@
+{
+ "trechos": [
+  [
+   1.65,
+   6.866
+  ],
+  [
+   7.066,
+   10.244
+  ],
+  [
+   10.619,
+   11.477
+  ],
+  [
+   11.727,
+   14.646
+  ],
+  [
+   14.935,
+   16.564
+  ],
+  [
+   17.008,
+   18.136
+  ],
+  [
+   18.46,
+   20.5
+  ],
+  [
+   35.61,
+   36.951
+  ],
+  [
+   37.878,
+   41.95
+  ],
+  [
+   42.074,
+   43.35
+  ],
+  [
+   46.14,
+   47.15
+  ],
+  [
+   47.753,
+   51.27
+  ],
+  [
+   51.678,
+   53.927
+  ],
+  [
+   54.266,
+   58.607
+  ],
+  [
+   58.782,
+   60.125
+  ],
+  [
+   61.67,
+   63.817
+  ],
+  [
+   64.073,
+   65.255
+  ],
+  [
+   65.587,
+   66.745
+  ],
+  [
+   67.201,
+   69.481
+  ],
+  [
+   71.762,
+   73.339
+  ],
+  [
+   73.559,
+   75.792
+  ],
+  [
+   76.025,
+   76.7
+  ],
+  [
+   79.92,
+   80.025
+  ],
+  [
+   80.434,
+   82.488
+  ],
+  [
+   82.969,
+   84.673
+  ],
+  [
+   84.82,
+   89.649
+  ],
+  [
+   89.937,
+   90.678
+  ],
+  [
+   90.932,
+   92.013
+  ],
+  [
+   92.373,
+   93.523
+  ],
+  [
+   95.68,
+   97.9
+  ],
+  [
+   99.66,
+   104.95
+  ],
+  [
+   115.159,
+   116.549
+  ],
+  [
+   116.749,
+   118.657
+  ],
+  [
+   120.7,
+   122.14
+  ],
+  [
+   122.579,
+   128.545
+  ],
+  [
+   129.038,
+   130.16
+  ],
+  [
+   130.61,
+   132.835
+  ],
+  [
+   133.189,
+   135.049
+  ],
+  [
+   135.378,
+   140.524
+  ],
+  [
+   140.69,
+   141.45
+  ]
+ ],
+ "remover": [
+  {
+   "de": 20.5,
+   "ate": 28.75,
+   "fala": "ele pega até uma certa distância, mas consegue,",
+   "motivo": "frase com hesitação; a ideia de que funciona sob a copa continua na sequência"
+  },
+  {
+   "de": 28.7,
+   "ate": 35.5,
+   "fala": "com a banda L, com satélites, (até) para você pegar aqui,",
+   "motivo": "repete a banda L já citada na abertura"
+  },
+  {
+   "de": 69.6,
+   "ate": 71.45,
+   "fala": "onde foi locado,",
+   "motivo": "redundante com 'coordenadas em UTM'"
+  },
+  {
+   "de": 76.7,
+   "ate": 79.92,
+   "fala": "que acontecem também, também",
+   "motivo": "repetição ('também, também') e complemento dispensável"
+  },
+  {
+   "de": 104.95,
+   "ate": 115.0,
+   "fala": "e, e usando para você ter alguma atividade na área de campo, ter mais precisão",
+   "motivo": "frase truncada, sem conclusão; a ideia de resolver em campo continua"
+  },
+  {
+   "de": 119.3,
+   "ate": 120.7,
+   "fala": "E é isso,",
+   "motivo": "muleta de transição"
+  }
+ ],
+ "pad_pausas": 0.12,
+ "pausas_encurtadas_s": 9.16
+}
