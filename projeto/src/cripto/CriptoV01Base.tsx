@@ -26,8 +26,8 @@ const INSERCOES = [
   },
 ] as const;
 
-// Cartão sobre o tronco do apresentador: abaixo do rosto e acima da legenda.
-const CARTAO = { largura: 560, topo: 870 };
+// Cartão acima do rosto do apresentador (20% maior que a versão anterior).
+const CARTAO = { largura: 672, topo: 60 };
 const LARGURA_ORIGEM = 1080;
 const ALTURA_ORIGEM = 1920;
 
