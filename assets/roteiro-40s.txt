@@ -1,0 +1,33 @@
+ROTEIRO 40 s - DEMONSTRAÇÃO RS3L (BANDA L) - GeoVBMap
+Base: conteúdo falado no vídeo V02-simples (122 s), condensado para cerca de 40 s.
+Ritmo de referência: cerca de 2,6 palavras por segundo (aproximadamente 105 palavras).
+
+[00-05 s] ABERTURA
+Bom dia, pessoal! Eu sou Vandré Barreto, engenheiro civil e sanitarista ambiental.
+
+[05-15 s] BANDA L SOB A COPA
+Hoje vou mostrar o RS3L, com banda L. Mesmo debaixo da copa das árvores, ele recebe os satélites e loca cada árvore para a supressão vegetal, sem perder o ponto.
+
+[15-25 s] COLETORA E IMU
+Na coletora, vejo todos os pontos levantados, as coordenadas em UTM e os erros de cada ponto. Com o IMU, o bastão pode inclinar até 60 graus, com precisão centimétrica.
+
+[25-33 s] RESOLVER EM CAMPO
+Também dá para fazer poligonal e resolver tudo em campo, sem voltar ao escritório.
+
+[33-40 s] CONTATO
+A GeoVBMap faz o serviço, a locação e a venda do RS3L. Marque sua demonstração: (67) 99248-8884. Valeu!
+
+---------------------------------------------------------------
+GRAFIA DE REFERÊNCIA (usar só para conferir a escrita na legenda)
+- Vandré Barreto
+- GeoVBMap
+- RS3L
+- banda L
+- IMU (compensação de inclinação)
+- UTM
+- coletora
+- poligonal
+- supressão vegetal
+- precisão centimétrica
+- 60 graus / 60°
+- (67) 99248-8884
