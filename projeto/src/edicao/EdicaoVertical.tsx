@@ -1,14 +1,14 @@
 import { Video } from "@remotion/media";
 import { Series, staticFile } from "remotion";
 import { BasicCaptions } from "../basic-captions.element";
-import { Enquadramento } from "./Enquadramento";
+import { Enquadramento, type PontoEnquadramento } from "./Enquadramento";
 
 // Gerado a partir do plano de cortes e da transcrição (tempos em relação ao original).
 // Duração total: 3673 quadros (122.4 s a 30 fps).
 export const DURACAO_EDICAO = 3673;
 
-const ZOOM = 1.2;
-const PONTOS: ReadonlyArray<readonly [number, number]> = [[0, 330], [2.5, 328], [4.5, 334], [5.6, 330], [6.6, 284], [7.4, 292], [8.4, 310], [9.6, 334], [10.4, 340], [11.8, 314]];
+// Enquadramento: [tempo no original (s), centro do apresentador (px no original), zoom]
+const PONTOS: ReadonlyArray<PontoEnquadramento> = [[0, 330, 1.2], [2.5, 328, 1.2], [4.5, 334, 1.2], [5.6, 330, 1.2], [6.6, 284, 1.2], [7.4, 292, 1.2], [8.4, 310, 1.2], [9.6, 334, 1.2], [10.4, 340, 1.2], [11.8, 314, 1.2], [14, 339, 1.2], [16, 357, 1.2], [18, 400, 1.2], [20, 357, 1.2], [22, 357, 1.2], [23.5, 288, 1.2], [26.5, 288, 1.2], [28, 390, 1.2], [31.4, 450, 1.2], [33.5, 200, 1.35], [34.5, 150, 1.35], [43.3, 145, 1.35], [46.2, 173, 1.35], [47.2, 173, 1.35], [50, 288, 1.2], [110, 288, 1.2], [112, 110, 1.35], [114, 144, 1.35], [116, 150, 1.35], [118.7, 135, 1.35], [119.6, 150, 1.35], [122, 165, 1.35], [124, 170, 1.35], [126, 155, 1.35], [128, 170, 1.35], [132, 175, 1.35], [136, 185, 1.35], [141.5, 190, 1.35]];
 
 // Área da legenda: longe da faixa inferior (~420 px) e dos botões à direita do Instagram.
 const LEGENDA = { largura: 840, esquerda: 80, baixo: 440 };
@@ -21,7 +21,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={50}
         durationInFrames={646}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 01"
             src={staticFile("trabalho.mp4")}
@@ -94,7 +94,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={711}
         durationInFrames={43}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 02"
             src={staticFile("trabalho.mp4")}
@@ -117,7 +117,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={768}
         durationInFrames={43}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 03"
             src={staticFile("trabalho.mp4")}
@@ -140,7 +140,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={829}
         durationInFrames={112}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 04"
             src={staticFile("trabalho.mp4")}
@@ -161,7 +161,7 @@ export const EdicaoVertical: React.FC = () => {
               { text: " banda", startMs: 29300, endMs: 29520, timestampMs: 29410, confidence: 1.00 },
               { text: " L,", startMs: 29520, endMs: 29840, timestampMs: 29680, confidence: 1.00, pageBreakAfter: true },
               { text: " com", startMs: 29840, endMs: 30360, timestampMs: 30100, confidence: 0.45 },
-              { text: " satélites,", startMs: 30360, endMs: 31100, timestampMs: 30730, confidence: 0.95 },
+              { text: " satélites,", startMs: 30360, endMs: 31100, timestampMs: 30730, confidence: 0.95, pageBreakAfter: true },
           ]}
         />
       </Series.Sequence>
@@ -170,7 +170,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={1005}
         durationInFrames={48}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 05"
             src={staticFile("trabalho.mp4")}
@@ -184,6 +184,7 @@ export const EdicaoVertical: React.FC = () => {
           combineTokensWithinMilliseconds={60000}
           style={{ position: "absolute", bottom: LEGENDA.baixo, translate: `${LEGENDA.esquerda}px 0px` }}
           captions={[
+              { text: " até", startMs: 33510, endMs: 33880, timestampMs: 33695, confidence: 0.98 },
               { text: " para", startMs: 33880, endMs: 34040, timestampMs: 33960, confidence: 0.71 },
               { text: " você", startMs: 34040, endMs: 34240, timestampMs: 34140, confidence: 0.99 },
               { text: " pegar", startMs: 34240, endMs: 34560, timestampMs: 34400, confidence: 0.99 },
@@ -196,7 +197,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={1068}
         durationInFrames={42}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 06"
             src={staticFile("trabalho.mp4")}
@@ -214,6 +215,7 @@ export const EdicaoVertical: React.FC = () => {
               { text: " não", startMs: 35980, endMs: 36160, timestampMs: 36070, confidence: 1.00 },
               { text: " vai", startMs: 36160, endMs: 36320, timestampMs: 36240, confidence: 1.00 },
               { text: " sair", startMs: 36320, endMs: 36580, timestampMs: 36450, confidence: 1.00 },
+              { text: " o", startMs: 36580, endMs: 37000, timestampMs: 36790, confidence: 0.62 },
           ]}
         />
       </Series.Sequence>
@@ -222,7 +224,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={1136}
         durationInFrames={164}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 07"
             src={staticFile("trabalho.mp4")}
@@ -256,7 +258,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={1384}
         durationInFrames={30}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 08"
             src={staticFile("trabalho.mp4")}
@@ -280,7 +282,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={1431}
         durationInFrames={375}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 09"
             src={staticFile("trabalho.mp4")}
@@ -322,7 +324,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={1850}
         durationInFrames={237}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 10"
             src={staticFile("trabalho.mp4")}
@@ -355,7 +357,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={2106}
         durationInFrames={198}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 11"
             src={staticFile("trabalho.mp4")}
@@ -371,7 +373,7 @@ export const EdicaoVertical: React.FC = () => {
           captions={[
               { text: " onde", startMs: 70200, endMs: 70540, timestampMs: 70370, confidence: 0.99 },
               { text: " foi", startMs: 70540, endMs: 70700, timestampMs: 70620, confidence: 1.00 },
-              { text: " locado,", startMs: 70700, endMs: 71280, timestampMs: 70990, confidence: 0.97 },
+              { text: " locado,", startMs: 70700, endMs: 71280, timestampMs: 70990, confidence: 0.97, pageBreakAfter: true },
               { text: " as", startMs: 71540, endMs: 72460, timestampMs: 72000, confidence: 1.00 },
               { text: " coordenadas", startMs: 72460, endMs: 73120, timestampMs: 72790, confidence: 1.00 },
               { text: " em", startMs: 73120, endMs: 74780, timestampMs: 73950, confidence: 0.96 },
@@ -386,7 +388,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={2317}
         durationInFrames={491}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 12"
             src={staticFile("trabalho.mp4")}
@@ -403,17 +405,18 @@ export const EdicaoVertical: React.FC = () => {
               { text: " que", startMs: 77240, endMs: 77520, timestampMs: 77380, confidence: 1.00 },
               { text: " acontecem", startMs: 77520, endMs: 79500, timestampMs: 78510, confidence: 1.00 },
               { text: " também,", startMs: 79500, endMs: 79780, timestampMs: 79640, confidence: 0.98, pageBreakAfter: true },
+              { text: " também", startMs: 79780, endMs: 79780, timestampMs: 79780, confidence: 0.17 },
               { text: " é", startMs: 79780, endMs: 80660, timestampMs: 80220, confidence: 0.56 },
               { text: " a", startMs: 80660, endMs: 80940, timestampMs: 80800, confidence: 0.95 },
               { text: " compensação", startMs: 80940, endMs: 81520, timestampMs: 81230, confidence: 0.99 },
-              { text: " de", startMs: 81520, endMs: 81660, timestampMs: 81590, confidence: 0.97 },
+              { text: " de", startMs: 81520, endMs: 81660, timestampMs: 81590, confidence: 0.97, pageBreakAfter: true },
               { text: " inclinação", startMs: 81660, endMs: 82220, timestampMs: 81940, confidence: 1.00 },
               { text: " que", startMs: 82220, endMs: 83180, timestampMs: 82700, confidence: 0.78 },
               { text: " é", startMs: 83180, endMs: 83360, timestampMs: 83270, confidence: 0.44 },
-              { text: " o", startMs: 83360, endMs: 83500, timestampMs: 83430, confidence: 0.99, pageBreakAfter: true },
+              { text: " o", startMs: 83360, endMs: 83500, timestampMs: 83430, confidence: 0.99 },
               { text: " sistema", startMs: 83500, endMs: 83920, timestampMs: 83710, confidence: 0.99 },
-              { text: " IMU", startMs: 83920, endMs: 84300, timestampMs: 84110, confidence: 0.48 },
-              { text: " né", startMs: 84300, endMs: 84480, timestampMs: 84390, confidence: 0.64 },
+              { text: " IMU,", startMs: 83920, endMs: 84300, timestampMs: 84110, confidence: 0.48 },
+              { text: " né,", startMs: 84300, endMs: 84480, timestampMs: 84390, confidence: 0.64, pageBreakAfter: true },
               { text: " você", startMs: 84480, endMs: 85100, timestampMs: 84790, confidence: 0.70 },
               { text: " pode", startMs: 85100, endMs: 85440, timestampMs: 85270, confidence: 1.00 },
               { text: " ter", startMs: 85440, endMs: 85620, timestampMs: 85530, confidence: 0.98 },
@@ -425,14 +428,14 @@ export const EdicaoVertical: React.FC = () => {
               { text: " graus", startMs: 87640, endMs: 88420, timestampMs: 88030, confidence: 0.98 },
               { text: " para", startMs: 88420, endMs: 88580, timestampMs: 88500, confidence: 0.96 },
               { text: " você", startMs: 88580, endMs: 88780, timestampMs: 88680, confidence: 1.00 },
-              { text: " pegar", startMs: 88780, endMs: 89140, timestampMs: 88960, confidence: 0.99 },
-              { text: " o", startMs: 89140, endMs: 90120, timestampMs: 89630, confidence: 0.86, pageBreakAfter: true },
+              { text: " pegar", startMs: 88780, endMs: 89140, timestampMs: 88960, confidence: 0.99, pageBreakAfter: true },
+              { text: " o", startMs: 89140, endMs: 90120, timestampMs: 89630, confidence: 0.86 },
               { text: " ponto", startMs: 90120, endMs: 90500, timestampMs: 90310, confidence: 0.99 },
               { text: " e", startMs: 90500, endMs: 91100, timestampMs: 90800, confidence: 0.96 },
               { text: " tem", startMs: 91100, endMs: 91220, timestampMs: 91160, confidence: 0.89 },
               { text: " uma", startMs: 91220, endMs: 91340, timestampMs: 91280, confidence: 0.99 },
-              { text: " precisão", startMs: 91340, endMs: 91880, timestampMs: 91610, confidence: 1.00 },
-              { text: " centimétrica", startMs: 91880, endMs: 93340, timestampMs: 92610, confidence: 0.93, pageBreakAfter: true },
+              { text: " precisão", startMs: 91340, endMs: 91880, timestampMs: 91610, confidence: 1.00, pageBreakAfter: true },
+              { text: " centimétrica", startMs: 91880, endMs: 93340, timestampMs: 92610, confidence: 0.93 },
           ]}
         />
       </Series.Sequence>
@@ -441,7 +444,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={2869}
         durationInFrames={68}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 13"
             src={staticFile("trabalho.mp4")}
@@ -455,6 +458,7 @@ export const EdicaoVertical: React.FC = () => {
           combineTokensWithinMilliseconds={60000}
           style={{ position: "absolute", bottom: LEGENDA.baixo, translate: `${LEGENDA.esquerda}px 0px` }}
           captions={[
+              { text: " e", startMs: 95630, endMs: 95920, timestampMs: 95775, confidence: 0.57 },
               { text: " aqui", startMs: 95920, endMs: 97180, timestampMs: 96550, confidence: 0.89 },
               { text: " também", startMs: 97180, endMs: 97480, timestampMs: 97330, confidence: 0.99 },
               { text: " tem", startMs: 97480, endMs: 97800, timestampMs: 97640, confidence: 0.99, pageBreakAfter: true },
@@ -466,7 +470,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={2990}
         durationInFrames={165}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 14"
             src={staticFile("trabalho.mp4")}
@@ -480,20 +484,22 @@ export const EdicaoVertical: React.FC = () => {
           combineTokensWithinMilliseconds={60000}
           style={{ position: "absolute", bottom: LEGENDA.baixo, translate: `${LEGENDA.esquerda}px 0px` }}
           captions={[
+              { text: " algumas", startMs: 99660, endMs: 100000, timestampMs: 99830, confidence: 0.94 },
               { text: " ferramentas", startMs: 100000, endMs: 100600, timestampMs: 100300, confidence: 1.00 },
               { text: " que", startMs: 100600, endMs: 100700, timestampMs: 100650, confidence: 1.00 },
-              { text: " você", startMs: 100700, endMs: 100880, timestampMs: 100790, confidence: 1.00 },
+              { text: " você", startMs: 100700, endMs: 100880, timestampMs: 100790, confidence: 1.00, pageBreakAfter: true },
               { text: " pode", startMs: 100880, endMs: 101140, timestampMs: 101010, confidence: 1.00 },
               { text: " utilizar", startMs: 101140, endMs: 101580, timestampMs: 101360, confidence: 0.99 },
-              { text: " em", startMs: 101580, endMs: 102040, timestampMs: 101810, confidence: 0.98, pageBreakAfter: true },
-              { text: " campo", startMs: 102040, endMs: 102400, timestampMs: 102220, confidence: 0.99 },
-              { text: " né", startMs: 102400, endMs: 102580, timestampMs: 102490, confidence: 0.97 },
+              { text: " em", startMs: 101580, endMs: 102040, timestampMs: 101810, confidence: 0.98 },
+              { text: " campo,", startMs: 102040, endMs: 102400, timestampMs: 102220, confidence: 0.99 },
+              { text: " né,", startMs: 102400, endMs: 102580, timestampMs: 102490, confidence: 0.97, pageBreakAfter: true },
               { text: " até", startMs: 102580, endMs: 103580, timestampMs: 103080, confidence: 0.93 },
               { text: " para", startMs: 103580, endMs: 103720, timestampMs: 103650, confidence: 0.97 },
               { text: " você", startMs: 103720, endMs: 103920, timestampMs: 103820, confidence: 0.99 },
               { text: " fazer", startMs: 103920, endMs: 104160, timestampMs: 104040, confidence: 1.00 },
               { text: " uma", startMs: 104160, endMs: 104260, timestampMs: 104210, confidence: 0.77 },
-              { text: " poligonal", startMs: 104260, endMs: 104820, timestampMs: 104540, confidence: 0.99, pageBreakAfter: true },
+              { text: " poligonal", startMs: 104260, endMs: 104820, timestampMs: 104540, confidence: 0.99 },
+              { text: " e,", startMs: 104820, endMs: 105170, timestampMs: 104995, confidence: 0.88, pageBreakAfter: true },
           ]}
         />
       </Series.Sequence>
@@ -502,7 +508,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={3177}
         durationInFrames={257}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 15"
             src={staticFile("trabalho.mp4")}
@@ -516,7 +522,7 @@ export const EdicaoVertical: React.FC = () => {
           combineTokensWithinMilliseconds={60000}
           style={{ position: "absolute", bottom: LEGENDA.baixo, translate: `${LEGENDA.esquerda}px 0px` }}
           captions={[
-              { text: " E", startMs: 106240, endMs: 106340, timestampMs: 106290, confidence: 0.23 },
+              { text: " e", startMs: 106240, endMs: 106340, timestampMs: 106290, confidence: 0.23 },
               { text: " usando", startMs: 106340, endMs: 107400, timestampMs: 106870, confidence: 0.99 },
               { text: " para", startMs: 107400, endMs: 108460, timestampMs: 107930, confidence: 0.89 },
               { text: " você", startMs: 108460, endMs: 108900, timestampMs: 108680, confidence: 1.00 },
@@ -529,7 +535,8 @@ export const EdicaoVertical: React.FC = () => {
               { text: " campo,", startMs: 112640, endMs: 112980, timestampMs: 112810, confidence: 1.00, pageBreakAfter: true },
               { text: " ter", startMs: 113200, endMs: 113420, timestampMs: 113310, confidence: 0.99 },
               { text: " mais", startMs: 113420, endMs: 113640, timestampMs: 113530, confidence: 1.00 },
-              { text: " precisão", startMs: 113640, endMs: 114200, timestampMs: 113920, confidence: 1.00, pageBreakAfter: true },
+              { text: " precisão", startMs: 113640, endMs: 114200, timestampMs: 113920, confidence: 1.00 },
+              { text: " e", startMs: 114200, endMs: 114460, timestampMs: 114330, confidence: 0.52 },
           ]}
         />
       </Series.Sequence>
@@ -538,7 +545,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={3453}
         durationInFrames={109}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 16"
             src={staticFile("trabalho.mp4")}
@@ -552,7 +559,7 @@ export const EdicaoVertical: React.FC = () => {
           combineTokensWithinMilliseconds={60000}
           style={{ position: "absolute", bottom: LEGENDA.baixo, translate: `${LEGENDA.esquerda}px 0px` }}
           captions={[
-              { text: " você", startMs: 115340, endMs: 115540, timestampMs: 115440, confidence: 1.00 },
+              { text: " você", startMs: 115340, endMs: 115540, timestampMs: 115440, confidence: 1.00, pageBreakAfter: true },
               { text: " consegue", startMs: 115540, endMs: 115940, timestampMs: 115740, confidence: 1.00 },
               { text: " resolver", startMs: 115940, endMs: 116320, timestampMs: 116130, confidence: 1.00 },
               { text: " aqui", startMs: 116320, endMs: 117060, timestampMs: 116690, confidence: 1.00 },
@@ -570,7 +577,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={3586}
         durationInFrames={319}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 17"
             src={staticFile("trabalho.mp4")}
@@ -602,9 +609,7 @@ export const EdicaoVertical: React.FC = () => {
               { text: " equipamento", startMs: 126720, endMs: 127680, timestampMs: 127200, confidence: 1.00 },
               { text: " RS3L.", startMs: 127680, endMs: 128400, timestampMs: 128040, confidence: 0.93, pageBreakAfter: true },
               { text: " A", startMs: 128400, endMs: 129260, timestampMs: 128830, confidence: 0.76 },
-              { text: " Geo", startMs: 129260, endMs: 129500, timestampMs: 129380, confidence: 0.90 },
-              { text: " VB", startMs: 129500, endMs: 129720, timestampMs: 129610, confidence: 0.51 },
-              { text: " Map", startMs: 129720, endMs: 130020, timestampMs: 129870, confidence: 0.85, pageBreakAfter: true },
+              { text: " GeoVBMap", startMs: 129260, endMs: 130020, timestampMs: 129640, confidence: 0.51 },
           ]}
         />
       </Series.Sequence>
@@ -613,7 +618,7 @@ export const EdicaoVertical: React.FC = () => {
         trimBefore={3918}
         durationInFrames={326}
       >
-        <Enquadramento zoom={ZOOM} pontos={PONTOS}>
+        <Enquadramento pontos={PONTOS}>
           <Video
             name="Vídeo 18"
             src={staticFile("trabalho.mp4")}
@@ -627,7 +632,8 @@ export const EdicaoVertical: React.FC = () => {
           combineTokensWithinMilliseconds={60000}
           style={{ position: "absolute", bottom: LEGENDA.baixo, translate: `${LEGENDA.esquerda}px 0px` }}
           captions={[
-              { text: " disposta", startMs: 130840, endMs: 131400, timestampMs: 131120, confidence: 0.77 },
+              { text: " está", startMs: 130610, endMs: 130840, timestampMs: 130725, confidence: 0.97 },
+              { text: " disposta", startMs: 130840, endMs: 131400, timestampMs: 131120, confidence: 0.77, pageBreakAfter: true },
               { text: " a", startMs: 131400, endMs: 131680, timestampMs: 131540, confidence: 0.98 },
               { text: " fazer", startMs: 131680, endMs: 131900, timestampMs: 131790, confidence: 1.00 },
               { text: " a", startMs: 131900, endMs: 132000, timestampMs: 131950, confidence: 0.92 },
@@ -639,10 +645,8 @@ export const EdicaoVertical: React.FC = () => {
               { text: " mesmo", startMs: 134480, endMs: 134880, timestampMs: 134680, confidence: 1.00 },
               { text: " no", startMs: 134880, endMs: 135560, timestampMs: 135220, confidence: 0.90, pageBreakAfter: true },
               { text: " telefone", startMs: 135560, endMs: 136080, timestampMs: 135820, confidence: 1.00 },
-              { text: " 67", startMs: 136080, endMs: 136660, timestampMs: 136370, confidence: 0.99 },
-              { text: " 992", startMs: 136660, endMs: 137860, timestampMs: 137260, confidence: 0.66 },
-              { text: " 48", startMs: 137860, endMs: 138460, timestampMs: 138160, confidence: 0.96 },
-              { text: " 8884.", startMs: 138460, endMs: 140180, timestampMs: 139320, confidence: 0.91, pageBreakAfter: true },
+              { text: " (67)", startMs: 136080, endMs: 138130, timestampMs: 137105, confidence: 0.66 },
+              { text: " 99248-8884.", startMs: 138130, endMs: 140180, timestampMs: 139155, confidence: 0.66, pageBreakAfter: true },
               { text: " Valeu,", startMs: 140360, endMs: 140940, timestampMs: 140650, confidence: 1.00 },
               { text: " obrigado!", startMs: 140980, endMs: 141140, timestampMs: 141060, confidence: 0.96, pageBreakAfter: true },
           ]}
