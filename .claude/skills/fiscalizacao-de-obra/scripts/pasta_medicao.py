@@ -5,13 +5,14 @@ Estrutura gerada:
 
     MEDIÇÃO/
       <NOME DA OBRA> - NUP <número>/
-        01 - BOLETIM DE MEDIÇÃO
-        ...
-        10 - DESPACHO
+        <NNª MEDIÇÃO>/
+          01 - BOLETIM DE MEDIÇÃO
+          ...
+          10 - DESPACHO
 
 Uso:
-    python3 pasta_medicao.py criar --obra "NOME DA OBRA" --nup "00/000.000/0000" [--destino DIR]
-    python3 pasta_medicao.py verificar --obra "NOME DA OBRA" --nup "00/000.000/0000" [--destino DIR]
+    python3 pasta_medicao.py criar --obra "NOME DA OBRA" --nup "00/000.000/0000" --medicao 8 [--destino DIR]
+    python3 pasta_medicao.py verificar --obra "NOME DA OBRA" --nup "00/000.000/0000" --medicao 8 [--destino DIR]
 """
 import argparse
 import re
@@ -49,15 +50,18 @@ def nome_subpasta(indice: int, nome: str, numerar: bool) -> str:
     return f"{indice:02d} - {nome}" if numerar else nome
 
 
-def pasta_da_obra(destino: Path, obra: str, nup: str) -> Path:
+def pasta_da_medicao(destino: Path, obra: str, nup: str, medicao: int) -> Path:
     obra, nup = limpar(obra), limpar(nup)
     if not obra or not nup:
         sys.exit("ERRO: informe o nome da obra e o número do NUP.")
-    return destino / PASTA_RAIZ / f"{obra.upper()} - NUP {nup}"
+    if medicao < 1:
+        sys.exit("ERRO: o número da medição deve ser 1 ou maior.")
+    # Dois dígitos para a 10ª medição não aparecer antes da 2ª no explorador.
+    return destino / PASTA_RAIZ / f"{obra.upper()} - NUP {nup}" / f"{medicao:02d}ª MEDIÇÃO"
 
 
 def criar(args) -> None:
-    base = pasta_da_obra(Path(args.destino), args.obra, args.nup)
+    base = pasta_da_medicao(Path(args.destino), args.obra, args.nup, args.medicao)
     numerar = not args.sem_numeracao
     for i, nome in enumerate(SUBPASTAS, start=1):
         (base / nome_subpasta(i, nome, numerar)).mkdir(parents=True, exist_ok=True)
@@ -67,7 +71,7 @@ def criar(args) -> None:
 
 
 def verificar(args) -> None:
-    base = pasta_da_obra(Path(args.destino), args.obra, args.nup)
+    base = pasta_da_medicao(Path(args.destino), args.obra, args.nup, args.medicao)
     if not base.is_dir():
         sys.exit(f"ERRO: pasta não encontrada: {base}")
     pendentes = 0
@@ -95,6 +99,7 @@ def main() -> None:
         p = sub.add_parser(nome)
         p.add_argument("--obra", required=True, help="Nome da obra")
         p.add_argument("--nup", required=True, help="Número do NUP do processo")
+        p.add_argument("--medicao", required=True, type=int, help="Número da medição (ex.: 8)")
         p.add_argument("--destino", default=".", help="Diretório onde fica a pasta MEDIÇÃO")
         p.set_defaults(funcao=funcao)
         if nome == "criar":
