@@ -1,6 +1,9 @@
 entregas/V02-simples.mp4
 
-# Modelo com dados pessoais dos signatários: não versionar
+# Modelos mantidos só no pacote .zip da skill: não versionar
 .claude/skills/fiscalizacao-de-obra/modelos/04 - CERTIFICADO DE ASSINATURA/
 .claude/skills/fiscalizacao-de-obra/modelos/06 - NOTA FISCAL/
 .claude/skills/fiscalizacao-de-obra/modelos/09 - DECLARAÇÃO DE ADIMPLEMENTO/
+.claude/skills/fiscalizacao-de-obra/modelos/07 - ATESTO DE NOTA FISCAL/
+.claude/skills/fiscalizacao-de-obra/modelos/08 - CERTIDÕES/
+.claude/skills/fiscalizacao-de-obra/modelos/10 - DESPACHO/

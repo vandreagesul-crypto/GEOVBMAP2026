@@ -145,9 +145,10 @@ O que os modelos mostram, e que serve de roteiro de conferência cruzada:
 Os modelos são apenas referência: nunca copiá-los para a pasta de entrega de
 uma obra nem reaproveitar seus dados (valores, nomes, datas) em outra medição.
 
-Três modelos não são versionados no repositório, por conterem dados pessoais
-ou bancários, e acompanham apenas o pacote `.zip` da skill: certificado de
-assinatura (04), nota fiscal (06) e declaração de adimplemento (09).
+Dos modelos, só quatro são versionados no repositório (01, 02, 03 e 05). Os
+outros seis (04, 06, 07, 08, 09 e 10) acompanham apenas o pacote `.zip` da
+skill, por serem documentos reais com dados pessoais, bancários ou de
+terceiros.
 
 ## 4. Limites
 
