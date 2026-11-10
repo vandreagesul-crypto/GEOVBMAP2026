@@ -90,9 +90,9 @@ certidões, assinaturas) é do fiscal.
 
 ## 3. Modelos de referência
 
-A pasta `modelos/` traz um documento real de exemplo para cada subpasta já
-coberta. Usar como referência de formato e conteúdo esperado ao conferir ou
-orientar a montagem de uma medição:
+A pasta `modelos/` traz um documento real de exemplo (8ª medição de uma obra)
+para cada uma das 10 subpastas. Usar como referência de formato e conteúdo
+esperado ao conferir ou orientar a montagem de uma medição:
 
 | Subpasta | Modelo | Origem |
 |---|---|---|
@@ -101,8 +101,13 @@ orientar a montagem de uma medição:
 | 03 - REGISTRO FOTOGRÁFICO | `3_RelatorioFotograficoMedicao_3.pdf` | Sistema E-KRONOS |
 | 04 - CERTIFICADO DE ASSINATURA | `4_certificado_de_assinatura.pdf` | DocuSign |
 | 05 - MEMORIAL DE CÁLCULO | `5_MEMORIA_CALCULO_08_AD_assinado.pdf` | Contratada |
+| 06 - NOTA FISCAL | `6_NF_733_8_MEDICAO_JUCEMS.pdf` | Contratada (NFS-e) |
+| 07 - ATESTO DE NOTA FISCAL | `7_Atesto_de_NF.pdf` | Fiscal e diretor da DEMC |
+| 08 - CERTIDÕES | `8_certidoes_2026.pdf` | Contratada |
+| 09 - DECLARAÇÃO DE ADIMPLEMENTO | `9_DECLARACAO_REGULAR_E_ADIMP_VERBAS_TRABALHISTAS_AD.pdf` | Contratada |
+| 10 - DESPACHO | `10_DESPACHO_PARA_DEMC_-_PAGAMENTO.pdf` | GEOC/DEMC |
 
-O que os modelos mostram:
+O que os modelos mostram, e que serve de roteiro de conferência cruzada:
 
 - Boletim, resumo e relatório fotográfico saem do E-KRONOS e são assinados em
   um mesmo envelope DocuSign pelo representante da contratada e pelo fiscal.
@@ -112,12 +117,27 @@ O que os modelos mostram:
 - Processo, contrato, nº da medição e período de referência devem coincidir em
   todos os documentos da mesma medição.
 - A memória de cálculo é emitida pela contratada, com o mesmo nº de medição.
+- Nota fiscal: o valor da NFS-e deve ser igual ao total "No Período" do resumo
+  de medição; a descrição do serviço cita nº da medição, período, contrato e
+  processo; o tomador é a AGESUL.
+- Atesto de NF: nº, valor e data de emissão devem ser os da nota fiscal; é
+  assinado pelo fiscal e pelo diretor da DEMC.
+- Certidões (arquivo único, no modelo): CRF do FGTS, CND estadual
+  (SEFAZ/PGE-MS), CND municipal geral e mobiliária, CNDT trabalhista e CND
+  federal (RFB/PGFN). Todas devem estar no CNPJ da contratada e dentro da
+  validade na data do encaminhamento.
+- Declaração de adimplemento: declaração de regularidade e adimplemento de
+  verbas trabalhistas (anexo do edital), assinada digitalmente pelo
+  representante legal da contratada, citando o objeto da obra.
+- Despacho: encaminha os autos à DEMC para pagamento, citando o nº da medição
+  e listando os documentos anexados.
 
 Os modelos são apenas referência: nunca copiá-los para a pasta de entrega de
 uma obra nem reaproveitar seus dados (valores, nomes, datas) em outra medição.
-As subpastas 06 a 10 ainda não têm modelo. O modelo do certificado de
-assinatura contém e-mails e IPs dos signatários e por isso não é versionado no
-repositório; ele acompanha apenas o pacote `.zip` da skill.
+
+Três modelos não são versionados no repositório, por conterem dados pessoais
+ou bancários, e acompanham apenas o pacote `.zip` da skill: certificado de
+assinatura (04), nota fiscal (06) e declaração de adimplemento (09).
 
 ## 4. Limites
 
