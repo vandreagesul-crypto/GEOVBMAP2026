@@ -88,7 +88,36 @@ resultado ao usuário como lista de pendências. A conferência só verifica se 
 arquivo em cada subpasta; a validação do conteúdo (valores, datas, validade das
 certidões, assinaturas) é do fiscal.
 
-## 3. Limites
+## 3. Modelos de referência
+
+A pasta `modelos/` traz um documento real de exemplo para cada subpasta já
+coberta. Usar como referência de formato e conteúdo esperado ao conferir ou
+orientar a montagem de uma medição:
+
+| Subpasta | Modelo | Origem |
+|---|---|---|
+| 01 - BOLETIM DE MEDIÇÃO | `1_BoletimMedicao_2_1.pdf` | Sistema E-KRONOS |
+| 02 - RESUMO DE MEDIÇÃO | `2_ResumoMedicao_2.pdf` | Sistema E-KRONOS |
+| 03 - REGISTRO FOTOGRÁFICO | `3_RelatorioFotograficoMedicao_3.pdf` | Sistema E-KRONOS |
+| 04 - CERTIFICADO DE ASSINATURA | `4_certificado_de_assinatura.pdf` | DocuSign |
+| 05 - MEMORIAL DE CÁLCULO | `5_MEMORIA_CALCULO_08_AD_assinado.pdf` | Contratada |
+
+O que os modelos mostram:
+
+- Boletim, resumo e relatório fotográfico saem do E-KRONOS e são assinados em
+  um mesmo envelope DocuSign pelo representante da contratada e pelo fiscal.
+- O certificado de assinatura é o "Certificado de Conclusão" desse envelope; o
+  ID do envelope no certificado deve ser o mesmo impresso no topo dos três
+  documentos.
+- Processo, contrato, nº da medição e período de referência devem coincidir em
+  todos os documentos da mesma medição.
+- A memória de cálculo é emitida pela contratada, com o mesmo nº de medição.
+
+Os modelos são apenas referência: nunca copiá-los para a pasta de entrega de
+uma obra nem reaproveitar seus dados (valores, nomes, datas) em outra medição.
+As subpastas 06 a 10 ainda não têm modelo.
+
+## 4. Limites
 
 - A skill organiza e confere a documentação; ela não substitui a análise
   técnica nem o atesto do fiscal.
