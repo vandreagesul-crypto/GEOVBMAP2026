@@ -115,7 +115,9 @@ O que os modelos mostram:
 
 Os modelos são apenas referência: nunca copiá-los para a pasta de entrega de
 uma obra nem reaproveitar seus dados (valores, nomes, datas) em outra medição.
-As subpastas 06 a 10 ainda não têm modelo.
+As subpastas 06 a 10 ainda não têm modelo. O modelo do certificado de
+assinatura contém e-mails e IPs dos signatários e por isso não é versionado no
+repositório; ele acompanha apenas o pacote `.zip` da skill.
 
 ## 4. Limites
 
